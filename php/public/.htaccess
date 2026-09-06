@@ -1,0 +1,20 @@
+# OakSkin Connect - 虚拟主机路由规则
+# 前端 SPA + /api 接口统一交由 index.php 处理
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # 透传 Authorization 头（Yggdrasil/接口鉴权用）
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # 已存在的真实文件/目录直接访问（css/js/图片等）
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 其余请求（含 /api/* 与前端路由回退）交给 index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# .htaccess 失效时的兜底（伪静态不可用时，请改用站点根目录 /index.php 伪静态或 nginx 配置）
+DirectoryIndex index.html index.php

@@ -1,0 +1,1 @@
+import{z as t}from"./index-Dz1vTea5.js";const o={getList(){return t.get("/user/closet/list")},add(e,r=""){return t.post("/user/closet",{tid:e,item_name:r})},rename(e,r){return t.put(`/user/closet/${e}`,{item_name:r})},remove(e){return t.delete(`/user/closet/${e}`)},getAllIds(){return t.get("/user/closet/ids")}};export{o as c};

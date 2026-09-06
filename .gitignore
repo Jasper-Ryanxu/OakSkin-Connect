@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+*.zip
+
+# runtime / secrets
+config.json
+install.lock
+.env
+*.log
+
+# database & uploaded textures
+storage/
+php/storage/
+
+# editor / local
+.trae/
+
+# 参考源码（Blessing Skin），非本项目，不纳入仓库
+yuanma802/
+
+# 根目录示例图片目录（本项目的 Web 目录在 php/public）
+/public/
+
+构建.bat

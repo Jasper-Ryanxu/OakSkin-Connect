@@ -1,0 +1,1 @@
+import{z as e}from"./index-DxxN9pQ2.js";const r={getStats(){return e.get("/admin/stats")},getUsers(t={}){return e.get("/admin/users",{params:t})},updatePermission(t,s){return e.put(`/admin/users/${t}/permission`,{permission:s})},getSettings(){return e.get("/admin/settings")},updateSettings(t){return e.put("/admin/settings",t)}};export{r as a};
